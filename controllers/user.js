@@ -43,7 +43,7 @@ const logIn = (request, response)=>{
 
     db.user.logIn(request.body.name,(error, queryResult)=>{
 
-        console.log("resbdyname",request.body.name);
+        console.log("resbdyname",request.body.password);
 
         console.log("controller: signin", queryResult);
 
@@ -55,18 +55,19 @@ const logIn = (request, response)=>{
             } else {
                 console.log("else controller",queryResult);
 
-                var hashValue = sha256(queryResult.password);
+                var hashValue = sha256(request.body.password);
 
                 console.log("db sent", queryResult.password);
 
                 console.log("input pass", hashValue);
 
-                if(request.body.password === hashValue){
+                if( queryResult.password === hashValue){
+
                     var hashCookie = sha256('true')
                     console.log("cookie res",queryResult.id);
 
                     response.cookie("User_id",queryResult.id);
-                    response.cookie("User_name",queryResult.name);
+                    response.cookie("User_name",queryResult.username);
                     response.cookie('loggedin', hashCookie)
                     response.send('login success');
                     } else {
