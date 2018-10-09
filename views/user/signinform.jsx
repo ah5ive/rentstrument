@@ -1,6 +1,6 @@
 var React = require("react");
 
-class newUser extends React.Component {
+class signIn extends React.Component {
   render() {
     return (
    <html>
@@ -13,17 +13,15 @@ class newUser extends React.Component {
   <body>
   <div id="wrapper">
   <header>
-  <h1>Sign up form</h1>
+  <h1>Welcome back, please sign in</h1>
   </header>
   <main>
-  <form name="newuser" method="post" action="/user">
-    <p>Email Address</p>
-    <input type ="text" name="email"/>
+  <form className="user-signin" method="post" action="/user/login">
     <p>Username</p>
-    <input type ="text" name="username"/>
+    <input name="name" type ="text" />
     <p>Password</p>
-    <input type="text" name="password"/>
-    <button name="submit" value="sign up">Sign Up</button>
+    <input name="password" type="text" />
+    <button name="submit" value="sign in">Sign In</button>
   </form>
   </main>
   </div>
@@ -33,4 +31,4 @@ class newUser extends React.Component {
   }
 }
 
-module.exports = newUser;
+module.exports = signIn;
