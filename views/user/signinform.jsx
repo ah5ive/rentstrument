@@ -5,10 +5,10 @@ class signIn extends React.Component {
     return (
    <html>
   <head>
-    <title>Sign Up</title>
+    <title>Sign In</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link rel="stylesheet" href="/reset.css"/>
-    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/formstyle.css"/>
   </head>
   <body>
   <div id="wrapper">

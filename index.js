@@ -42,12 +42,6 @@ app.engine('jsx', reactEngine);
 
 require('./routes')(app, db);
 
-app.get('/', (request, response) => {
-
-  response.send('It good to be home.');
-
-});
-
 /**
  * ===================================
  * Listen to requests on port 3000
@@ -58,10 +52,10 @@ const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => console.log('~~~ Tuning in to the waves of port '+PORT+' ~~~'));
 
 // Run clean up actions when server shuts down
-// server.on('close', () => {
-//   console.log('Closed express server');
+server.on('close', () => {
+  console.log('Closed express server');
 
-//   db.pool.end(() => {
-//     console.log('Shut down db connection pool');
-//   });
-// });
+  db.pool.end(() => {
+    console.log('Shut down db connection pool');
+  });
+});
