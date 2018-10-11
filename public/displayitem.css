@@ -1,0 +1,44 @@
+.displayItem {
+	margin: 40px auto 0;
+	width: 800px;
+}
+
+.listitems {
+		width: 100px;
+		height: 120px;
+		margin: 0px 40px 20px 20px;
+		text-align: center;
+		font-size: .9em;
+		font-weight: bold;
+		line-height: 1.5em;
+		display: inline-block;
+		box-shadow: 5px 5px 5px #888888;
+		position: relative;
+		background-color: #F2CF5D;
+		padding: 20px;
+		float: left;
+
+}
+
+.listitems a {
+		text-decoration: none;
+		color: #87643A;
+
+}
+
+.listitems a:hover {
+	color: #ffffff;
+}
+
+.listitems p {
+		display: block;
+		background-color: #426B8C;
+		position: absolute;
+		bottom: 0px;
+		right:0px;
+		bottom:0px;
+		width:70px;
+		/*padding: 3px 5px 3px*/;
+		font-size: .7em;
+		color: #37BECC;
+}

@@ -4,7 +4,7 @@ INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES 
 
 INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Guitars','Fender Telecaster','The ultimate blue-collar guitar, the Telecaster launched a musical revolution when we released it. Quickly adopted by working guitarists who were enamored with its trend-setting sound, feel and unique style, the Telecaster laid the foundation for modern country, blues and even heavy metal (in Jimmy Page’s hands). ','0');
 
-INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Bass','Macus Miller M2','The body is made with indonesian mahogany which is known for its warm clear full-bodied sound. the neck is made with canadian hard maple rather than a low-cost material.','1');
+INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Bass','Macus Miller M2','The body is made with indonesian mahogany which is known for its warm clear full-bodied sound. the neck is made with canadian hard maple rather than a low-cost material.','2');
 
 INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('2','Proaudio','Scalet solo','One natural-sounding Scarlett mic preamp with plenty of even gain, one instrument input, designed to handle seriously hot pickups, class-leading conversion and sample rates up to 192kHz/24-bit, super-low latency for using your plug-ins in real time without the need for DSP','0');
 

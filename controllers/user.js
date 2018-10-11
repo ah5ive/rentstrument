@@ -76,6 +76,25 @@ module.exports = (db) => {
                 }
             });
         }
+
+    //get user
+    const getUser = (request,response)=>{
+        //console.log("response",response)
+
+        db.user.getUser(request.params.id,(error, queryResult)=>{
+        //console.log("resbdyname",request.body.name);
+        console.log("getuserqR",queryResult)
+        console.log("==err==",error)
+
+        let userCookies = {
+                username: request.cookies['user_name'],
+                userId: request.cookies['user_id'],
+                userLogin: request.cookies['loggedin']
+            };
+
+            response.render('user/user',{user:queryResult, cookie: userCookies})
+        })
+    }
     //log out
     const logout = (request, response)=>{
         response.clearCookie('user_name');
@@ -87,25 +106,26 @@ module.exports = (db) => {
     }
 
     //home
-    const home = (request, response)=>{
+  //   const home = (request, response)=>{
 
-        let userCookies = {
-                username: request.cookies['user_name'],
-                userId: request.cookies['user_id'],
-                userLogin: request.cookies['loggedin']
-        };
+  //       let userCookies = {
+  //               username: request.cookies['user_name'],
+  //               userId: request.cookies['user_id'],
+  //               userLogin: request.cookies['loggedin']
+  //       };
 
-        console.log("usercookie",userCookies);
-        response.render('user/home', {cookie:userCookies});
-  }
+  //       console.log("usercookie",userCookies);
+  //       response.render('user/home', {cookie:userCookies});
+  // }
 
 return {
     createUserForm,
     createUser,
+    getUser,
     logInForm,
     logIn,
-    home,
     logout
+
     //foobar
   };
 };

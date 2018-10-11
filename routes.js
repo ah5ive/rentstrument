@@ -13,6 +13,7 @@ module.exports = (app, db) => {
     app.get('/user/login',user.logInForm);
     app.get('/user/logout',user.logout)
     app.post('/user/login',user.logIn);
+    app.get('/user/:id',user.getUser);
     //app.get('/',user.home);
     app.get('/',item.getAllItems);
 };

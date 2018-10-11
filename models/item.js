@@ -4,7 +4,7 @@ module.exports = (dbPoolInstance) => {
     const getAllItems = (callback)=>{
         //console.log("model:items", item);
         //set up query
-        const queryString = 'SELECT users.username,users.id,items.itemname, items.itemdesc FROM users INNER JOIN items ON items.username_id = users.id;';
+        const queryString = 'SELECT users.username,users.id,items.itemname, items.rent_id FROM users INNER JOIN items ON items.username_id = users.id;';
 
         console.log("models: itemQueryString", queryString);
 
