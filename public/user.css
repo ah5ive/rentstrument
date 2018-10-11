@@ -1,0 +1,67 @@
+
+#profile {
+		width: 65%;
+		margin-left: 60px;
+		float: left;
+}
+
+#profile h1 {
+		color: #49454A;
+		font-weight: 400;
+		text-align: left;
+		font-size: 2.5em;
+}
+
+#profile h3 {
+		color: #49454A;
+		font-weight: 600;
+		text-align: left;
+		font-size: 1.2em;
+		line-height: 2.5em;
+}
+
+#userdisplayitems{
+
+}
+.itemrow {
+	clear: left;
+}
+.userInventory {
+		width: 60px;
+		height: 60px;
+		margin: 5px 5px 0px 0px;
+		text-align: center;
+		font-size: .75em;
+		font-weight: bold;
+		line-height: 1.5em;
+		display: inline-block;
+		box-shadow: 5px 5px 5px #888888;
+		position: relative;
+		background-color: #F2CF5D;
+		padding: 20px;
+		float: left;
+
+}
+
+.userInventory a {
+		text-decoration: none;
+		color: #87643A;
+
+}
+
+.userInventory a:hover {
+	color: #ffffff;
+}
+
+.userInventory p {
+		display: block;
+		background-color: #426B8C;
+		position: absolute;
+		bottom: 0px;
+		right:0px;
+		bottom:0px;
+		width:70px;
+		/*padding: 3px 5px 3px*/;
+		font-size: .7em;
+		color: #37BECC;
+}
