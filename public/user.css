@@ -20,9 +20,29 @@
 		line-height: 2.5em;
 }
 
-#userdisplayitems{
+/*#userdisplayitems{
 
+}*/
+
+#formright{
+	margin-top: 60px;
+	float:left;
 }
+
+#formright p{
+	font-size: .8em;
+	text-align: left;
+	font-weight: 600;
+}
+
+#formright h3{
+	text-align: left;
+	font-weight: 700;
+	line-height: 2em;
+}
+
+
+
 .itemrow {
 	clear: left;
 }
@@ -64,4 +84,31 @@
 		/*padding: 3px 5px 3px*/;
 		font-size: .7em;
 		color: #37BECC;
+}
+
+input[type=text], select{
+	width:100%;
+	margin:8px 0 8px 0;
+	padding: 5px;
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+textarea {
+    width: 100%;
+    margin:8px 0 8px 0;
+    box-sizing: border-box;
+    height: 150px;
+    resize: none;
+}
+
+input[type=button]{
+	width:100%;
+	margin:8px 0 8px 0;
+	background-color: #10B7CC;
+	padding: 5px;
+	box-sizing: border-box;
+	display: inline-block;
+	font-weight: 600;
+	border: none;
 }

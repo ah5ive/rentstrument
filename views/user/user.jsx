@@ -1,4 +1,5 @@
 var React = require("react");
+var PostItemForm =  require('./postitemform')
 
 class getUser extends React.Component {
   render() {
@@ -24,13 +25,10 @@ class getUser extends React.Component {
                             };
 
     return <li className="userInventory" key={userItems.itemname}><a href="#">{userItems.itemname}</a>
-                <p>{rentavailable}</p>
-            </li>
-
-            })
+                <p>{rentavailable}</p></li>})
 
     //let url = 'user/' + userCookie.userId;
-
+    //var foo = "bar"
     return (
    <html>
   <head>
@@ -64,8 +62,11 @@ class getUser extends React.Component {
         <h3>Rented Items</h3>
         </div>
     </div>
+    <div id="formright">
+        <PostItemForm/>
+    </div>
   </main>
-  <footer>©rentstrument</footer>
+  <footer>© rentstrument</footer>
   </div>
   </body>
   </html>

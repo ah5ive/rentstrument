@@ -13,9 +13,6 @@ var allListItems = this.props.items;
     }
 
     let url = 'user/' + userCookie.userId;
-    console.log("===url===",url)
-
-
 
     //{allListItems.map(allListItems =>({allListItems.rent_id}))}
 
@@ -25,13 +22,17 @@ var allListItems = this.props.items;
 
             var rentavailable;
 
+            console.log("allListItems_ID",allListItems.id)
+
+            var itemUrl = 'item/' + allListItems.id;
+
               if (allListItems.rent_id !== 0){
                     var rentavailable = 'Not Availble'
                         } else {
                     var rentavailable = 'Available'
                             };
 
-    return <li className="listitems" key={allListItems.itemname}><a href="#">{allListItems.itemname}</a>
+    return <li className="listitems" key={allListItems.itemname}><a href={itemUrl} target="_blank">{allListItems.itemname}</a>
                 <p>{rentavailable}</p>
             </li>
 
@@ -58,11 +59,11 @@ var allListItems = this.props.items;
       <li><a href="/">Home</a></li>
     </ul>
     </nav>
-  <main>
-    <div id="header">
+    <header>
       <h1>Rent Your Music Gears And Instruments</h1>
       <h3>You can rent instruments for you gigs and function.</h3>
-    </div>
+    </header>
+  <main>
     <div className="displayItem">
         <ul>
         {items}

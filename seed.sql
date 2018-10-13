@@ -2,7 +2,7 @@
 
 INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Keyboard','korg kross 2','KROSS 2, the long-awaited successor of the KROSS, is a compact, portable workstation with a huge range of sounds. While maintaining its identity as ultra-lightweight, compact, and capable of running on batteries, this new model dramatically enhances KROSS’s sounds and functionality. In addition to a total of more than a thousand preset sounds, expansion PCM memory has been newly added.','0');
 
-INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Guitars','Fender Telecaster','The ultimate blue-collar guitar, the Telecaster launched a musical revolution when we released it. Quickly adopted by working guitarists who were enamored with its trend-setting sound, feel and unique style, the Telecaster laid the foundation for modern country, blues and even heavy metal (in Jimmy Page’s hands). ','0');
+INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Guitar','Fender Telecaster','The ultimate blue-collar guitar, the Telecaster launched a musical revolution when we released it. Quickly adopted by working guitarists who were enamored with its trend-setting sound, feel and unique style, the Telecaster laid the foundation for modern country, blues and even heavy metal (in Jimmy Page’s hands). ','0');
 
 INSERT INTO items (username_id, catergory, itemname, itemDesc, rent_id ) VALUES ('1','Bass','Macus Miller M2','The body is made with indonesian mahogany which is known for its warm clear full-bodied sound. the neck is made with canadian hard maple rather than a low-cost material.','2');
 
