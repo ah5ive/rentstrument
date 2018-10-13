@@ -64,9 +64,29 @@ module.exports = (dbPoolInstance) => {
       });
     }
 
+
+    const postItem = (item,user,callback)=>{
+
+        console.log("modelpostitem", item, user)
+
+        const queryString ="INSERT INTO items (username_id, catergory, itemname, itemdesc, rent_id) VALUES ($1, $2, $3, $4,$5)"
+        const values = [user, item.catergory, item.item_name,item.descr, item.rent_id];
+
+        dbPoolInstance.query(queryString, values, (error, queryResult) => {
+        // invoke callback function with results after query has executed
+        callback(error, queryResult);
+      });
+
+
+
+    }
+
+
+
   return {
       createUser,
       logIn,
-      getUser
+      getUser,
+      postItem
     };
 };

@@ -16,8 +16,28 @@ module.exports = (db) => {
 
         });
     }
+
+    const getSingleItem = (request, response)=>{
+
+        db.item.getSingleItem(request.params.id,(error, queryResult)=>{
+
+            //console.log("singleitem",queryResult)
+            //console.log("==singleitem_err==",error)
+
+            let userCookies = {
+                username: request.cookies['user_name'],
+                userId: request.cookies['user_id'],
+                userLogin: request.cookies['loggedin']
+        };
+
+        response.render('item/singleitem', {singleItem: queryResult, cookie:userCookies});
+
+        });
+
+    }
         return {
-        getAllItems
+        getAllItems,
+        getSingleItem
         //foobar
       };
     };

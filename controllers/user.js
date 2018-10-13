@@ -49,7 +49,7 @@ module.exports = (db) => {
 
             if(error){
                 console.log("error", error);
-                reponse.status(505).send("controllerGG");
+                response.status(505).send("controllerGG");
             } else if (queryResult === null) {
                 response.status(404).send("User Not found");
                 } else {
@@ -95,6 +95,35 @@ module.exports = (db) => {
             response.render('user/user',{user:queryResult, cookie: userCookies})
         })
     }
+
+    const postItemForm = (request,response)=>{
+        response.render('user/postitemform');
+    }
+
+    const postItem = (request,response)=>{
+
+        db.user.postItem(request.body,request.cookies['user_id'],(error, queryResult)=>{
+
+        let userCookies = {
+                username: request.cookies['user_name'],
+                userId: request.cookies['user_id'],
+                userLogin: request.cookies['loggedin']
+            };
+
+            if(error){
+                console.log("error", error);
+                response.status(505).send("Con post itemGG");
+            } else if (queryResult === null) {
+                response.status(404).send("User Not found");
+                } else {
+                    console.log("Con postItem QR",queryResult);
+
+                    response.redirect('/user/'+ userCookies.userId);
+                };
+
+            });
+    }
+
     //log out
     const logout = (request, response)=>{
         response.clearCookie('user_name');
@@ -124,7 +153,9 @@ return {
     getUser,
     logInForm,
     logIn,
-    logout
+    logout,
+    postItemForm,
+    postItem
 
     //foobar
   };

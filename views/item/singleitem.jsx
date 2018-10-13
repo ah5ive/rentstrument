@@ -3,12 +3,12 @@ var React = require("react");
 class getSingleItem extends React.Component {
   render() {
 
-    // console.log("singleitems",this.props.items)
+    console.log("singleitem_jsx", this.props.singleItem)
     console.log("single user cookie",this.props.cookie);
 
     // var userItems = this.props.user;
     var userCookie = this.props.cookie;
-
+    var singleItem = this.props.singleItem;
     // if(userCookie == null){
     //   userCookie.username = ' '
     // }

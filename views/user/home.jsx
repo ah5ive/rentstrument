@@ -14,15 +14,11 @@ var allListItems = this.props.items;
 
     let url = 'user/' + userCookie.userId;
 
-    //{allListItems.map(allListItems =>({allListItems.rent_id}))}
-
-    //console.log("alllistitems", {allListItems.map(allListItems =>({allListItems.rent_id}))})
-
-    const items = this.props.items.map(allListItems => {
+        const items = this.props.items.map(allListItems => {
 
             var rentavailable;
 
-            console.log("allListItems_ID",allListItems.id)
+            //console.log("allListItems_ID",allListItems.id)
 
             var itemUrl = 'item/' + allListItems.id;
 
