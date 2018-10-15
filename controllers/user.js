@@ -1,6 +1,6 @@
 var sha256 = require('js-sha256');
 
-module.exports = (db) => {
+module.exports = (db,item) => {
 //======controller Logic===========
     const createUserForm = (request, response)=>{
         response.render('user/newuserform');
@@ -79,20 +79,38 @@ module.exports = (db) => {
 
     //get user
     const getUser = (request,response)=>{
-        //console.log("response",response)
-
-        db.user.getUser(request.params.id,(error, queryResult)=>{
-        //console.log("resbdyname",request.body.name);
-        console.log("getuserqR",queryResult)
-        console.log("==err==",error)
 
         let userCookies = {
                 username: request.cookies['user_name'],
                 userId: request.cookies['user_id'],
                 userLogin: request.cookies['loggedin']
             };
+        //console.log("response",response)
+        db.user.getUser(request.params.id,(error, queryResult)=>{
+        //console.log("resbdyname",request.body.name);
+        //console.log("getuserQR",queryResult)
+        //console.log("==err==",error)
+            db.user.getRentItem(request.cookies['user_id'],(error,itemResult)=>{
 
-            response.render('user/user',{user:queryResult, cookie: userCookies})
+            console.log("control",request.cookies['user_id']);
+           // console.log("itemResult",itemResult )
+
+            if(error){
+                console.log("error", error);
+                response.status(505).send("Cannot get itemGG");
+            } else if (queryResult === null) {
+                response.status(404).send("User Not found");
+                } else {
+                    console.log("GetItem itemResult",queryResult);
+                    console.log("itemResult",itemResult )
+
+                    response.render('user/user', {item: itemResult, user:queryResult, cookie: userCookies});
+                   // response.send('rent item it work')
+                };
+
+
+            });
+
         })
     }
 
@@ -155,8 +173,8 @@ return {
     logIn,
     logout,
     postItemForm,
-    postItem
-
+    postItem,
+    //getRentItem
     //foobar
   };
 };

@@ -1,4 +1,6 @@
 var sha256 = require('js-sha256');
+// var itemModel = require('./item')
+
 
 module.exports = (dbPoolInstance) => {
 
@@ -45,14 +47,15 @@ module.exports = (dbPoolInstance) => {
     const getUser = (user,callback)=>{
         console.log("modelgetuser:",user)
         //console.log("callback", callback);
-        const queryString = "SELECT users.id, users.username, itemname, items.rent_id from users INNER JOIN items ON items.username_id = users.id WHERE users.id='" + user + "';";
-
+        //const queryString = "SELECT users.id, users.username, itemname, items.rent_id from users INNER JOIN items ON items.username_id = users.id WHERE users.id='" + user + "';";
+        const queryString = "SELECT id, itemname, username_id, rent_id FROM items WHERE username_id='" + user + "';";
          dbPoolInstance.query(queryString,(error, queryResult) => {
             //console.log("models: queryResult",queryResult.rows);
 
             if(error){
                 console.log(error, null);
             } else {
+                // itemModel.rentItem()
                     if (queryResult.rows[0] === undefined){
                         callback(null,null);
                     }else {
@@ -65,11 +68,11 @@ module.exports = (dbPoolInstance) => {
     }
 
 
-    const postItem = (item,user,callback)=>{
+    const postItem = (item, user,callback)=>{
 
         console.log("modelpostitem", item, user)
 
-        const queryString ="INSERT INTO items (username_id, catergory, itemname, itemdesc, rent_id) VALUES ($1, $2, $3, $4,$5)"
+        const queryString ="INSERT INTO items (username_id, category, itemname, itemdesc, rent_id) VALUES ($1, $2, $3, $4,$5)"
         const values = [user, item.catergory, item.item_name,item.descr, item.rent_id];
 
         dbPoolInstance.query(queryString, values, (error, queryResult) => {
@@ -77,16 +80,25 @@ module.exports = (dbPoolInstance) => {
         callback(error, queryResult);
       });
 
+}
 
+    const getRentItem = (user, callback)=>{
+            console.log("==models_getRentItem==",user);
 
-    }
+            const queryString = "SELECT id, itemname, username_id, rent_id FROM items WHERE rent_id='" + user + "';";
 
+            dbPoolInstance.query(queryString,(error, itemResult) => {
+                        // invoke callback function with results after query has executed
+            callback(error, itemResult.rows);
+                            });
 
+    };
 
   return {
       createUser,
       logIn,
       getUser,
-      postItem
+      postItem,
+      getRentItem
     };
 };

@@ -1,7 +1,8 @@
 module.exports = (app, db) => {
 
-    const user = require('./controllers/user')(db);
     const item = require('./controllers/item')(db);
+    const user = require('./controllers/user')(db,item);
+    //added the db of the items on controllers/user
   /*
    *  =========================================
    *  Users
@@ -9,6 +10,8 @@ module.exports = (app, db) => {
    */
   // CRUD users
     app.post('/user/postitem',user.postItem);
+    app.post('/user/rentitem',item.rentItem);
+    //app.get('/item/getrentitem',item.getRentItem);
     app.get('/user/new',user.createUserForm);
     app.post('/user', user.createUser);
     app.get('/user/login',user.logInForm);

@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS items(
   id SERIAL PRIMARY KEY,
   username_id INTEGER,
-  catergory TEXT,
+  category TEXT,
   itemname VARCHAR (50),
   itemdesc TEXT,
   rent_id INTEGER

@@ -1,21 +1,28 @@
 var React = require("react");
 var PostItemForm =  require('./postitemform')
+// var GetRentItem = require('../item/rented')
 
 class getUser extends React.Component {
   render() {
-
     console.log("useritems",this.props.user)
-    console.log("home cookie",this.props.cookie);
-
+    console.log("userpage cookie",this.props.cookie);
+    console.log("item result", this.props.item);
     var userItems = this.props.user;
     var userCookie = this.props.cookie;
+    var rentItems = this.props.item;
+    var getform;
 
     if(userCookie == null){
-      userCookie.username = ' '
+      userCookie.username = ' ';
     }
+
+    // const getItem = rentItems.map(rentItems=>){
+    //     return <li className"userInventory">{rentItems.itemname}</li>
+    // }
 
     const user = userItems.map(userItems => {
 
+            let itemUrl = '/item/'+userItems.id;
             var rentavailable;
 
               if (userItems.rent_id !== 0){
@@ -24,11 +31,12 @@ class getUser extends React.Component {
                     var rentavailable = 'Available'
                             };
 
-    return <li className="userInventory" key={userItems.itemname}><a href="#">{userItems.itemname}</a>
-                <p>{rentavailable}</p></li>})
+    return <li className="userInventory" key={userItems.itemname}><a href={itemUrl}>{userItems.itemname}</a>
+                <p>{rentavailable}</p></li>});
 
-    //let url = 'user/' + userCookie.userId;
-    //var foo = "bar"
+    // const rentItem = userItems.map(userItems=>){
+    //     return <li>{userItems.rent_id}</li>
+    // }
     return (
    <html>
   <head>
@@ -60,6 +68,8 @@ class getUser extends React.Component {
         </div>
         <div className="itemrow">
         <h3>Rented Items</h3>
+        <ul>
+        </ul>
         </div>
     </div>
     <div id="formright">
@@ -74,4 +84,7 @@ class getUser extends React.Component {
   }
 }
 
+
 module.exports = getUser;
+
+ // <GetRentItem/>

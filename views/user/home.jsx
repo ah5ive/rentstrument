@@ -3,7 +3,7 @@ var React = require("react");
 class home extends React.Component {
   render() {
 
-console.log('items:',this.props.items);
+console.log('items:',this.props.items.id);
 console.log("home cookie",this.props.cookie);
 
 var userCookie = this.props.cookie;
@@ -22,14 +22,16 @@ var allListItems = this.props.items;
 
             var itemUrl = 'item/' + allListItems.id;
 
+            var userUrl = 'user/' + allListItems.username_id;
+
               if (allListItems.rent_id !== 0){
                     var rentavailable = 'Not Availble'
                         } else {
                     var rentavailable = 'Available'
                             };
 
-    return <li className="listitems" key={allListItems.itemname}><a href={itemUrl} target="_blank">{allListItems.itemname}</a>
-                <p>{rentavailable}</p>
+    return <li className="listitems" key={allListItems.itemname}><a href={itemUrl} /*target="_blank"*/>{allListItems.itemname}</a>
+                <h5>List by: {allListItems.username}</h5><p>{rentavailable}</p>
             </li>
 
             })

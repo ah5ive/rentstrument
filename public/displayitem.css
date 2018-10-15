@@ -5,9 +5,9 @@
 }
 
 .listitems {
-		width: 100px;
+		width: 80px;
 		height: 120px;
-		margin: 0px 40px 20px 20px;
+		margin: 0px 60px 20px 20px;
 		text-align: center;
 		font-size: .9em;
 		font-weight: bold;
@@ -16,10 +16,13 @@
 		box-shadow: 5px 5px 5px #888888;
 		position: relative;
 		background-color: #F2CF5D;
-		padding: 20px;
+		padding: 40px 20px 0px 20px;
 		float: left;
 
+
 }
+
+
 
 .listitems a {
 		text-decoration: none;
@@ -35,11 +38,23 @@
 		display: block;
 		background-color: #426B8C;
 		position: absolute;
-		bottom: 0px;
+		/*bottom: 0px;*/
 		right:0px;
-		bottom:0px;
-		width:70px;
+		top:0px;
+		width:100%;
 		/*padding: 3px 5px 3px*/;
+		font-size: .7em;
+		color: #37BECC;
+}
+
+
+.listitems h5 {
+		display: block;
+		background-color: #0E3F6B;
+		position: absolute;
+		bottom: 0px;
+		left:0px;
+		width:100%;
 		font-size: .7em;
 		color: #37BECC;
 }

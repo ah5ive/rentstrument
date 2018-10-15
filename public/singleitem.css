@@ -1,0 +1,89 @@
+body{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #e5e3da;
+}
+
+header {
+	margin: 0 0 20px 0px;
+}
+
+header h2 {
+color: #2C568C;
+font-size: 1.5em;
+line-height: 2.5em;
+font-weight: 800;
+}
+
+main {
+
+}
+
+main h3 {
+color: #2C568C;
+font-size: 1em;
+line-height: 1.5em;
+font-weight: 700;
+}
+
+.singleitem {
+	margin: 40px auto 0px;
+	text-align: left;
+	padding: 0 40px 0 40px;
+}
+
+main p {
+	font-size: .8em;
+	line-height: 1.5em;
+	text-align: justify;
+}
+
+/*form a {
+	background-color: #1766AD;
+	border-radius: 4px;
+	margin: 10px 15px 5px 0px;
+	padding: 0 20px 0 20px;
+	border: none;
+	text-decoration: none;
+	font-size: 1em;
+	font-weight: bold;
+	height: 30px;
+	float: right;
+
+}*/
+
+footer{
+	margin-top: 30px;
+	height: 50px;
+	background-color: #2C568C;
+	width: 100%;
+	bottom: 0;
+	position:absolute;
+}
+
+footer p {
+	margin: 5px 15px 5px 0px;
+	color: white;
+	font-size: bold;
+	padding: 0 20px 0 20px;
+	right: 85px;
+	bottom: 15px;
+	position:absolute;
+	float: right;
+}
+
+footer .button {
+	background-color: #1766AD;
+	border-radius: 4px;
+	margin: 10px 15px 5px 0px;
+	padding: 0 20px 0 20px;
+	border: none;
+	font-size: 1em;
+	font-weight: bold;
+	height: 30px;
+	float: right;
+}
+
+footer .button:hover {
+	background-color: #1E86E5;
+}

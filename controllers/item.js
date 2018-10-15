@@ -21,7 +21,7 @@ module.exports = (db) => {
 
         db.item.getSingleItem(request.params.id,(error, queryResult)=>{
 
-            //console.log("singleitem",queryResult)
+            console.log("==getSingleItem_RPI==",request.params.id)
             //console.log("==singleitem_err==",error)
 
             let userCookies = {
@@ -35,9 +35,63 @@ module.exports = (db) => {
         });
 
     }
+
+    const rentItem = (request,response)=>{
+
+        db.item.rentItem(request.body,request.cookies['user_id'],(error, queryResult)=>{
+
+            console.log("===rentItem controllers===", request.body)
+        let userCookies = {
+                username: request.cookies['user_name'],
+                userId: request.cookies['user_id'],
+                userLogin: request.cookies['loggedin']
+            };
+
+            if(error){
+                console.log("error", error);
+                response.status(505).send("Cannot post itemGG");
+            } else if (queryResult === null) {
+                response.status(404).send("User Not found");
+                } else {
+                    console.log("Cannot postItem QR",queryResult);
+
+                    response.redirect('/user/'+ userCookies.userId);
+                };
+
+            });
+    }
+
+    // const getRentItem = (request, response)=>{
+    //     db.item.getRentItem(request.cookies['user_id'],(error,queryResult)=>{
+
+    //         console.log("control",request.cookies['user_id']);
+
+    //         let userCookies = {
+    //             username: request.cookies['user_name'],
+    //             userId: request.cookies['user_id'],
+    //             userLogin: request.cookies['loggedin']
+    //         };
+
+    //         if(error){
+    //             console.log("error", error);
+    //             response.status(505).send("Cannot get itemGG");
+    //         } else if (queryResult === null) {
+    //             response.status(404).send("User Not found");
+    //             } else {
+    //                 console.log("GetItem QR",queryResult);
+
+    //                 response.render('item/rented', {rentItem: queryResult});
+    //             };
+
+
+    //     });
+    // }
+
         return {
         getAllItems,
-        getSingleItem
+        getSingleItem,
+        rentItem,
+        // getRentItem
         //foobar
       };
     };

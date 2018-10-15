@@ -11,8 +11,8 @@ class postItemForm extends React.Component {
                     <p>Item Name:</p>
                     <input name ="item_name" type="text"/>
                     <p>Catergory:</p>
-                    <select name="catergory">
-                          <option value="guitar">guitar</option>
+                    <select name="category">
+                          <option value="guitar">Guitar</option>
                           <option value="bass">Bass</option>
                           <option value="keyboard">Keyboard</option>
                           <option value="proaudio">Proaudio</option>
