@@ -7,9 +7,9 @@
 
 #profile h1 {
 		color: #49454A;
-		font-weight: 400;
+		font-weight: 600;
 		text-align: left;
-		font-size: 2.5em;
+		font-size: 2em;
 }
 
 #profile h3 {
@@ -46,6 +46,46 @@
 .itemrow {
 	clear: left;
 }
+
+.rentInventory {
+		width: 60px;
+		height: 60px;
+		margin: 5px 5px 0px 0px;
+		text-align: center;
+		font-size: .75em;
+		font-weight: bold;
+		line-height: 1.5em;
+		display: inline-block;
+		box-shadow: 5px 5px 5px #888888;
+		position: relative;
+		background-color: #F2CF5D;
+		padding: 20px;
+		float: left;
+}
+
+.rentInventory a {
+		text-decoration: none;
+		color: #87643A;
+
+}
+
+.rentInventory a:hover {
+	color: #ffffff;
+}
+
+.rentInventory p a {
+		display: block;
+		background-color: #0E3F6B;
+		position: absolute;
+		bottom: 0px;
+		right:0px;
+		bottom:0px;
+		width:70px;
+		/*padding: 3px 5px 3px*/;
+		font-size: .7em;
+		color: #37BECC;
+}
+
 .userInventory {
 		width: 60px;
 		height: 60px;

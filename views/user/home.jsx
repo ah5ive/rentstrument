@@ -1,4 +1,5 @@
 var React = require("react");
+const sha256 = require("js-sha256");
 
 class home extends React.Component {
   render() {
@@ -6,13 +7,30 @@ class home extends React.Component {
 console.log('items:',this.props.items);
 console.log("home cookie",this.props.cookie);
 
+var userSignUp;
+var userSignIn;
+var userSignOut;
+var signin = false;
+var cookieTrue = sha256('true')
 var userCookie = this.props.cookie;
 var allListItems = this.props.items;
     if(userCookie == null){
       userCookie.username = ' '
     }
 
-    let url = 'user/' + userCookie.userId;
+    if (userCookie.userLogin === cookieTrue ){
+        signin = true;
+            var userSignUp = '';
+            var userSignIn = '';
+            var userSignOut = 'Sign out'
+        } else {
+            signin = false;
+                var userSignUp = 'Sign up';
+                var userSignIn = 'Sign in';
+                var userSignOut = '';
+        };
+
+    let url = 'user/profile/' + userCookie.userId;
 
         const items = this.props.items.map(allListItems => {
 
@@ -31,7 +49,7 @@ var allListItems = this.props.items;
                             };
 
     return <li className="listitems" key={allListItems.itemname}><a href={itemUrl} /*target="_blank"*/>{allListItems.itemname}</a>
-                <h5>List by: {allListItems.username}</h5><p>{rentavailable}</p>
+                <h5><a href={userUrl}>List by: {allListItems.username}</a></h5><p>{rentavailable}</p>
             </li>
 
             })
@@ -51,10 +69,10 @@ var allListItems = this.props.items;
 
     <ul>
       <li><a href={url}> Welcome {userCookie.username}</a></li>
-      <li><a href="/user/new">Sign up</a></li>
-      <li><a href="/user/login">Sign in</a></li>
-      <li><a href="/user/logout">Sign out</a></li>
+      <li><a href="/user/logout">{userSignOut}</a></li>
       <li><a href="/">Home</a></li>
+      <li><a href="/user/new">{userSignUp}</a></li>
+      <li><a href="/user/login">{userSignIn}</a></li>
     </ul>
     </nav>
     <header>

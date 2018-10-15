@@ -4,13 +4,10 @@ class getSingleItem extends React.Component {
 
   render() {
 
-    function toGoHome (){
-      location.assign("http://localhost:3000/")
-    };
-
     console.log("singleitem_jsx", this.props.singleItem)
-    console.log("single user cookie",this.props.cookie);
-    console.log("item",this.props.singleItem.id)
+    console.log("single user cookie id",this.props.cookie.userId);
+    console.log("item",this.props.singleItem.user_id)
+    console.log("singleitem_username_id",this.props.singleItem.username_id)
 
     // var userItems = this.props.user;
     var userCookie = this.props.cookie;
@@ -23,12 +20,11 @@ class getSingleItem extends React.Component {
 
     if(singleItem.rent_id !== 0){
       var itemNotAvailable = <p>Item Not Available</p>
-    } else if (singleItem.username_id = userCookie.userId){
-
+    } else if (singleItem.user_id == userCookie.userId){
         var itemNotAvailable = <p>You Own This</p>
-    }  else  {
-      var itemNotAvailable = <button className="button" type="submit" name='rent_id' value={userCookie.userId}>Rent It</button>
-    };
+        }  else  {
+        var itemNotAvailable = <button className="button" type="submit" name='rent_id' value={userCookie.userId}>Rent It</button>
+         };
 
 
 

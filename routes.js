@@ -9,6 +9,7 @@ module.exports = (app, db) => {
    *  =========================================
    */
   // CRUD users
+    app.get('/user/profile/:id',user.getUser);
     app.post('/user/postitem',user.postItem);
     app.post('/user/rentitem',item.rentItem);
     //app.get('/item/getrentitem',item.getRentItem);
@@ -17,7 +18,7 @@ module.exports = (app, db) => {
     app.get('/user/login',user.logInForm);
     app.get('/user/logout',user.logout)
     app.post('/user/login',user.logIn);
-    app.get('/user/:id',user.getUser);
+    app.get('/user/:id',user.getAllUser);
     app.get('/item/:id',item.getSingleItem);
     //app.get('/',user.home);
     app.get('/',item.getAllItems);

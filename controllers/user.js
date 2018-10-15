@@ -31,7 +31,8 @@ module.exports = (db,item) => {
             } else {
               console.log('User could not be created');
             }
-                response.send('sign up successful');
+                response.redirect('/');
+                //response.send('sign up successful');
           });
       };
 
@@ -65,10 +66,13 @@ module.exports = (db,item) => {
 
                         var hashCookie = sha256('true')
                         console.log("cookie res",queryResult.id);
-
+                        //=======================================
+                        //var testPath = '/user/'+ queryResult.id
+                        //=======================================
                         response.cookie('user_id',queryResult.id);
                         response.cookie('user_name',queryResult.username);
                         response.cookie('loggedin', hashCookie)
+                        //response.cookie('path', testPath)
                         response.redirect('/');
                         } else {
                             response.status(403).send('Invalid password');
@@ -86,13 +90,14 @@ module.exports = (db,item) => {
                 userLogin: request.cookies['loggedin']
             };
         //console.log("response",response)
-        db.user.getUser(request.params.id,(error, queryResult)=>{
+        db.user.getUser(request.cookies['user_id'],(error, queryResult)=>{
         //console.log("resbdyname",request.body.name);
         //console.log("getuserQR",queryResult)
         //console.log("==err==",error)
             db.user.getRentItem(request.cookies['user_id'],(error,itemResult)=>{
-
+                                //instead of request.params.id]
             console.log("control",request.cookies['user_id']);
+            console.log("control rqs paras",request.cookies['user_id'])
            // console.log("itemResult",itemResult )
 
             if(error){
@@ -102,9 +107,46 @@ module.exports = (db,item) => {
                 response.status(404).send("User Not found");
                 } else {
                     console.log("GetItem itemResult",queryResult);
-                    console.log("itemResult",itemResult )
+                    console.log("itemResult",itemResult.rows )
 
                     response.render('user/user', {item: itemResult.rows, user:queryResult, cookie: userCookies});
+                   // response.send('rent item it work')
+                };
+
+
+            });
+
+        })
+    }
+
+    const getAllUser = (request,response)=>{
+
+        let userCookies = {
+                username: request.cookies['user_name'],
+                userId: request.cookies['user_id'],
+                userLogin: request.cookies['loggedin']
+            };
+        //console.log("response",response)
+        db.user.getAllUser(request.params.id,(error, queryResult)=>{
+        //console.log("resbdyname",request.body.name);
+        //console.log("getuserQR",queryResult)
+        //console.log("==err==",error)
+            db.user.getRentItem(request.params.id,(error,itemResult)=>{
+                                //instead of request.params.id]
+            console.log("control",request.cookies['user_id']);
+            console.log("control rqs paras",request.cookies['user_id'])
+           // console.log("itemResult",itemResult )
+
+            if(error){
+                console.log("error", error);
+                response.status(505).send("Cannot get itemGG");
+            } else if (queryResult === null) {
+                response.status(404).send("User Not found");
+                } else {
+                    console.log("GetItem itemResult",queryResult);
+                    console.log("itemResult",itemResult.rows )
+
+                    response.render('user/alluser', {item: itemResult.rows, user:queryResult, cookie: userCookies});
                    // response.send('rent item it work')
                 };
 
@@ -175,6 +217,7 @@ return {
     logout,
     postItemForm,
     postItem,
+    getAllUser
     //getRentItem
     //foobar
   };

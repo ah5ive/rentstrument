@@ -84,8 +84,6 @@ class getUser extends React.Component {
         </div>
     </div>
     <div id="formright">
-        { signin ?(<PostItemForm/>):
-            (<p></p>)}
     </div>
   </main>
   <footer>© rentstrument</footer>

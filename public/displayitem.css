@@ -36,21 +36,21 @@
 
 .listitems p {
 		display: block;
-		background-color: #426B8C;
+		background-color: #0E3F6B;
 		position: absolute;
 		/*bottom: 0px;*/
 		right:0px;
 		top:0px;
 		width:100%;
-		/*padding: 3px 5px 3px*/;
+		/*#426B8Cpadding: 3px 5px 3px#0E3F6B*/;
 		font-size: .7em;
 		color: #37BECC;
 }
 
 
-.listitems h5 {
+.listitems h5 a {
 		display: block;
-		background-color: #0E3F6B;
+		background-color: #426B8C;
 		position: absolute;
 		bottom: 0px;
 		left:0px;

@@ -67,6 +67,29 @@ module.exports = (dbPoolInstance) => {
       });
     }
 
+    const getAllUser = (user,callback)=>{
+        console.log("modelgetuser:",user)
+        //console.log("callback", callback);
+        //const queryString = "SELECT users.id, users.username, itemname, items.rent_id from users INNER JOIN items ON items.username_id = users.id WHERE users.id='" + user + "';";
+        const queryString = "SELECT id, itemname, username_id, rent_id FROM items WHERE username_id='" + user + "';";
+         dbPoolInstance.query(queryString,(error, queryResult) => {
+            //console.log("models: queryResult",queryResult.rows);
+
+            if(error){
+                console.log(error, null);
+            } else {
+                // itemModel.rentItem()
+                    if (queryResult.rows[0] === undefined){
+                        callback(null,null);
+                    }else {
+                            console.log("models: queryResultRow",queryResult.rows);
+                            callback(null,queryResult.rows);
+                        }
+                }
+
+      });
+    }
+
 
     const postItem = (item, user,callback)=>{
 
@@ -100,6 +123,7 @@ module.exports = (dbPoolInstance) => {
       logIn,
       getUser,
       postItem,
-      getRentItem
+      getRentItem,
+      getAllUser
     };
 };
