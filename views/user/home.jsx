@@ -3,7 +3,7 @@ var React = require("react");
 class home extends React.Component {
   render() {
 
-console.log('items:',this.props.items.id);
+console.log('items:',this.props.items);
 console.log("home cookie",this.props.cookie);
 
 var userCookie = this.props.cookie;

@@ -16,9 +16,11 @@ class getUser extends React.Component {
       userCookie.username = ' ';
     }
 
-    // const getItem = rentItems.map(rentItems=>){
-    //     return <li className"userInventory">{rentItems.itemname}</li>
-    // }
+    const getItem = rentItems.map(rentItems=>{
+        let otherUser = '/user/'+ rentItems.username_id
+        let rentitemUrl = '/item/' + rentItems.id
+        return <li key={rentItems.id} className="userInventory"><a href={rentitemUrl}>{rentItems.itemname}</a> <p><a href={otherUser}>{rentItems.username}</a></p></li>
+    });
 
     const user = userItems.map(userItems => {
 
@@ -31,12 +33,9 @@ class getUser extends React.Component {
                     var rentavailable = 'Available'
                             };
 
-    return <li className="userInventory" key={userItems.itemname}><a href={itemUrl}>{userItems.itemname}</a>
+    return <li key={userItems.id} className="userInventory" key={userItems.itemname}><a href={itemUrl}>{userItems.itemname}</a>
                 <p>{rentavailable}</p></li>});
 
-    // const rentItem = userItems.map(userItems=>){
-    //     return <li>{userItems.rent_id}</li>
-    // }
     return (
    <html>
   <head>
@@ -59,7 +58,7 @@ class getUser extends React.Component {
     </nav>
   <main>
     <div id="profile">
-      <h1>Welcome {userCookie.username}</h1>
+      <h1>Dash board</h1>
         <div className="itemrow">
         <h3>Listed Items</h3>
           <ul>
@@ -69,6 +68,7 @@ class getUser extends React.Component {
         <div className="itemrow">
         <h3>Rented Items</h3>
         <ul>
+        {getItem}
         </ul>
         </div>
     </div>

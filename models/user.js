@@ -85,11 +85,12 @@ module.exports = (dbPoolInstance) => {
     const getRentItem = (user, callback)=>{
             console.log("==models_getRentItem==",user);
 
-            const queryString = "SELECT id, itemname, username_id, rent_id FROM items WHERE rent_id='" + user + "';";
-
+            const queryString = "SELECT items.id, users.username, items.itemname, items.username_id, items.rent_id  FROM items INNER JOIN users ON (items.username_id=users.id) WHERE rent_id='" + user + "';";
+            //
+            //SELECT id, itemname, username_id, rent_id FROM items WHERE rent_id=
             dbPoolInstance.query(queryString,(error, itemResult) => {
                         // invoke callback function with results after query has executed
-            callback(error, itemResult.rows);
+            callback(error, itemResult);
                             });
 
     };

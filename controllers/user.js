@@ -104,7 +104,7 @@ module.exports = (db,item) => {
                     console.log("GetItem itemResult",queryResult);
                     console.log("itemResult",itemResult )
 
-                    response.render('user/user', {item: itemResult, user:queryResult, cookie: userCookies});
+                    response.render('user/user', {item: itemResult.rows, user:queryResult, cookie: userCookies});
                    // response.send('rent item it work')
                 };
 
@@ -141,6 +141,7 @@ module.exports = (db,item) => {
 
             });
     }
+
 
     //log out
     const logout = (request, response)=>{
