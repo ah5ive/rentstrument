@@ -1,0 +1,38 @@
+{
+  "name": "wdi-16-collosal-banana",
+  "version": "1.0.0",
+  "description": "### WDI Class Repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines" : {
+    "node" : "10.10.0"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ah5ive/wdi-16-collosal-banana.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ah5ive/wdi-16-collosal-banana/issues"
+  },
+  "homepage": "https://github.com/ah5ive/wdi-16-collosal-banana#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "cookie": "^0.3.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-react-views": "^0.10.5",
+    "install": "^0.12.1",
+    "js-sha256": "^0.9.0",
+    "method-override": "^3.0.0",
+    "npm": "^6.4.1",
+    "parser": "^0.1.4",
+    "pg": "^7.5.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
